@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/x-icon" href="images/bg.jpg">
+		<!-- font CSS -->
+		<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'>
+		<!-- font-awesome icons -->
+		<link rel="stylesheet" href="css/font.css" type="text/css"/>
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<!-- //bootstrap-css -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" >
+		<!-- Custom CSS -->
+		<link rel='stylesheet' href="css/style.css">
+		<link rel="stylesheet" href="css/style-responsive.css">
+		<link rel="stylesheet" href="css/main.css" type="text/css"/>
+		<!-- js scripts-->
+		<script src="js/vendor/jquery2.0.3.min.js"></script>
+		<script src="js/vendor/interface-min.js"></script>
+		<script src="js/vendor/main.js"></script>
+		<title>Modifier mon profil</title>
+	</head>
+	<body>
+		<section id="container">
+			<header class="header fixed-top clearfix" id="header"></header>
+			<aside id="aside"></aside>
+			<section id="main-content">
+				<section class="wrapper">
+					<div class="form-w3layouts">
+						<!-- page start-->
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="panel">
+									<header class="panel-heading">
+										Modifier mon profil
+									</header>
+									<p id="successMessage"></p>
+									<div class="panel-body">
+										<form class="form-horizontal bucket-form" id="update_profil_form">
+											<div class="form-group">
+												<label class="col-sm-3 control-label">Prénom:</label>
+												<div class="col-sm-6">
+													<input type="text" class="form-control" id="firstName" readonly>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label">Nom:</label>
+												<div class="col-sm-6">
+													<input type="text" class="form-control" id="lastName" readonly>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label">Email</label>
+												<div class="col-sm-6">
+													<input type="text" name="pemail" class="form-control" id="email" readonly>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label">Date de naissance</label>
+												<div class="col-sm-6">
+													<input type="text" class="form-control" id="date_of_birth" readonly>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label">Ancien Mot de passe : </label>
+												<div class="col-sm-6">
+													<input type="password" name="oldPassword" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-3 control-label">Nouveau Mot de passe : </label>
+												<div class="col-sm-6">
+													<input type="password" name="newPassword" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-lg-offset-3 col-lg-10">
+													<button type="submit" name="save" class="btn btn-success">Enregistrer</button>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div id="updatePanel"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+		</section>
+		<script src="./js/utils/handleAccess.js"></script>
+		<script src="js/vendor/bootstrap.js"></script>
+		<script src="js/vendor/jquery.dcjqaccordion.2.7.js"></script>
+		<script src="js/vendor/scripts.js"></script>
+		<script src="js/vendor/jquery.slimscroll.js"></script>
+		<script src="js/vendor/jquery.nicescroll.js"></script>
+		<script src="js/vendor/jquery.scrollTo.js"></script>
+		<script type="text/javascript" src="js/vendor/monthly.js"></script>
+		<script src="./js/base/header.js"></script>
+		<script src="./js/auth/logout.js"></script>
+		<script src="./js/base/aside.js"></script>
+		<script src="./js/callApi/api.js"></script>
+		<script src="./js/profil/update_profile.js"></script>
+	</body>
+</html>

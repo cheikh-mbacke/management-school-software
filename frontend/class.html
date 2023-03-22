@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" type="image/x-icon" href="images/bg.jpg">
+		<!-- font CSS -->
+		<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'>
+		<!-- font-awesome icons -->
+		<link rel="stylesheet" href="css/font.css" type="text/css"/>
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<!-- //bootstrap-css -->
+		<link rel="stylesheet" href="css/bootstrap.min.css" >
+		<!-- Custom CSS -->
+		<link rel='stylesheet' href="css/style.css">
+		<link rel="stylesheet" href="css/style-responsive.css">
+		<link rel="stylesheet" href="css/main.css" type="text/css"/>
+		<!-- js scripts-->
+		<script src="js/vendor/jquery2.0.3.min.js"></script>
+		<script src="js/vendor/interface-min.js"></script>
+		<script src="js/vendor/main.js"></script>
+		<title>Gestion des notes</title>
+	</head>
+	<body>
+		<section id="container">
+			<header class="header fixed-top clearfix" id="header"></header>
+			<aside id="aside"></aside>
+			<section id="main-content">
+				<section class="wrapper">
+					<div class="form-w3layouts">
+						<div class="row">
+							<div class="col-lg-12">
+								<section class="panel" >
+									<header class="panel-heading">
+										Ajouter une classe
+									</header>
+									<section class="panel">
+										<div class="panel-body">
+											<form class="form-horizontal bucket-form" id="addClassForm">
+												<div class="form-group">
+													<br>
+													<label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Nom de la classe</label>
+													<div class="col-lg-6">
+														<input class="form-control input-sm m-bot15" name="className" required="">
+													</div>
+												</div>
+												<div class="col-lg-offset-3 col-lg-10">
+													<button type="submit" class="btn btn-success">Ajouter</button>
+												</div>
+												<div id="addClassFormMessage"></div>
+											</form>
+										</div>
+									</section>
+								</section>
+							</div>
+						</div>
+					</div>
+					<div class="form-w3layouts">
+						<div class="row">
+							<div class="col-lg-12">
+								<section class="panel">
+									<header class="panel-heading">
+										Supprimer une classe
+									</header>
+									<section class="panel">
+										<div class="panel-body">
+											<form class="form-horizontal bucket-form" id="deleteClassForm">
+												<div class="form-group">
+													<br>
+													<label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Sélectionne une classe</label>
+													<div class="col-lg-6">
+														<select class="form-control input-sm m-bot15 selectClass"name="deleteClassForm"></select>
+													</div>
+												</div>
+												<div class="col-lg-offset-3 col-lg-10">
+													<button type="submit" class="btn btn-danger">Supprimer</button>
+												</div>
+												<div id="deleteClassFormMessage"></div>
+											</form>
+										</div>
+									</section>
+								</section>
+							</div>
+						</div>
+					</div>
+					<div class="form-w3layouts">
+						<div class="row">
+							<div class="col-lg-12">
+								<section class="panel">
+									<header class="panel-heading">
+										Affecter une classe
+									</header>
+									<section class="panel">
+										<div class="panel-body">
+											<form class="form-horizontal bucket-form" id="affectClassForm">
+												<div class="form-group">
+													<br>
+													<label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Sélectionne une classe</label>
+													<div class="col-lg-6">
+														<select class="form-control input-sm m-bot15 selectClass" name="className"></select>
+													</div>
+												</div>
+												<div class="form-group">
+													<br>
+													<label class="col-sm-3 control-label col-lg-3" for="inputSuccess">Sélectionne un (e) enseignant (e)</label>
+													<div class="col-lg-6">
+														<select class="form-control input-sm m-bot15 selectTeacher" name="teacherId" id="selectTeacher"></select>
+													</div>
+												</div>
+												<div class="col-lg-offset-3 col-lg-10">
+													<button type="submit" class="btn btn-success">Affecter</button>
+												</div>
+												<div id="affectClassFormMessage"></div>
+											</form>
+										</div>
+									</section>
+								</section>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+		</section>
+		<script src="./js/utils/handleAccess.js"></script>
+		<script src="js/vendor/bootstrap.js"></script>
+		<script src="js/vendor/jquery.dcjqaccordion.2.7.js"></script>
+		<script src="js/vendor/scripts.js"></script>
+		<script src="js/vendor/jquery.slimscroll.js"></script>
+		<script src="js/vendor/jquery.nicescroll.js"></script>
+		<script src="js/vendor/jquery.scrollTo.js"></script>
+		<script type="text/javascript" src="js/vendor/monthly.js"></script>
+		<script src="./js/base/header.js"></script>
+		<script src="./js/auth/logout.js"></script>
+		<script src="./js/base/aside.js"></script>
+		<script src="./js/callApi/api.js"></script>
+		<script src="./js/utils/loadClasses.js"></script>
+		<script src="./js/utils/loadTeachers.js"></script>
+		<script src="./js/class/class.js"></script>
+	</body>
+</html>
