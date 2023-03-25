@@ -23,7 +23,7 @@ exports.addSlot = (req, res) => {
         console.log(timeSlot);
         console.log(timeSlot[0].length);
         if (timeSlot[0].length !== 0) {
-          return res.status(400).json({ error: 'Cette séance existe déjà dans la base de données' })
+          return res.status(400).json({ error: "Cette plage n'est pas disponible" })
         }else{
             sequelizeConfig.query(`
             INSERT INTO timetables
@@ -31,7 +31,7 @@ exports.addSlot = (req, res) => {
             moduleName, teacherId, descColor, description, classroom) VALUES (
             ${data.startHour}, ${data.startMinute}, ${data.endHour}, ${data.endMinute},
             '${data.date}', '${data.className}', '${data.moduleName}', ${data.teacherId}, 
-            '${data.descColor}', '${data.description}', '${data.classroom}');`
+            '${data.descColor}', '${data.description}', '${data.classRoom}');`
             )
             .then(() => res.status(201).json({ message: 'Scéance de cours créée' }))
             .catch(() => res.status(201).json({ error: unavailableError }))
@@ -41,6 +41,7 @@ exports.addSlot = (req, res) => {
 }
 
 exports.deleteSlot = (req, res) => {
+    
    const unavailableError = 'Le serveur est temporairement  indisponible !'
    const data = req.body
    
@@ -91,7 +92,7 @@ exports.getSlots = (req, res) => {
    
    sequelizeConfig.query(`
    SELECT timetables.id as 'id', startHour, startMinute, endHour, endMinute, date,
-   className, moduleName, descColor, description, teacherId, firstName, lastName FROM timetables
+   className, moduleName, descColor, description, teacherId, firstName, lastName, classroom FROM timetables
    INNER JOIN users ON teacherId = users.id
    WHERE date='${data.date}' ORDER BY startHour, date;
    `)

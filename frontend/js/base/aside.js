@@ -19,6 +19,12 @@ function insertAside() {
             <li><a href="update_profile.html">Modifier mon profil</a></li>
         </ul>
     </li>
+    <li class="sub-menu">
+    <a href="view_marks.html" class="active">
+        <i class="fa fa-area-chart"></i>
+        <span>Notes</span>
+    </a>
+    </li>
     `
     let studentAndTecherAcces = ''
     if (user.role === 'student' || user.role === 'teacher') {

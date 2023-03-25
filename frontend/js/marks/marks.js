@@ -12,11 +12,13 @@ window.addEventListener('load', () => {
      //Charger les étudiants
      loadStudents()
 
+     loadTeachers()
+
      //Gérer ajout note
      const addMarkForm = document.querySelector('#addMarkForm');
      addMarkForm.addEventListener('submit', (e) => handleaddMarkForm(e));
 
-          //Gérer suppression note
+     //Gérer suppression note
      const deleteMarkForm = document.querySelector('#deleteMarkForm');
      deleteMarkForm.addEventListener('submit', (e) => handledeleteMarkForm(e));
  })
@@ -24,13 +26,12 @@ window.addEventListener('load', () => {
  function handleaddMarkForm(event) {
     
     event.preventDefault();
-    const user = JSON.parse(localStorage.getItem('user'));
     const formElements = event.target.elements
 
     const data = {
         markValue: formElements.markValue.value,
         studentId: formElements.studentId.value,
-        teacherId: user.userId,
+        teacherId: formElements.teacherId.value,
         semestreValue: formElements.semestreValue.value,
         moduleName: formElements.moduleName.value,
         className: formElements.className.value,

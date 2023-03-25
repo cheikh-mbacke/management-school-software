@@ -1,4 +1,5 @@
 const db = require('../models')
+const sequelizeConfig = require("../config/sequelize.config");
 
 exports.addGrade = (req, res) => {
     const unavailableError = 'Le serveur est temporairement  indisponible !'
@@ -116,4 +117,51 @@ exports.getGrades = (req, res) => {
         )
 }
 
+exports.getStudentGrades = (req, res) => {
 
+    const data = req.body
+
+    const unavailableError = "le serveur est temporairement indisponible !"
+
+    sequelizeConfig.query(`
+        SELECT value, studentId, semestrevalue, moduleName, className FROM grades
+        WHERE studentId = '${data.studentId}'
+        AND className = '${data.className}'
+        AND studentId IN(SELECT users.id FROM users INNER JOIN roles
+        ON users.id = userId WHERE role = 'student') ORDER BY className, semestrevalue
+    `)
+    .then(data => {     
+        res.status(200).json(data[0])
+      })
+      .catch(() =>
+        res.status(500).json({ error: unavailableError })
+      )
+
+}
+
+exports.getTeacherStudentsGrades = (req, res) => { 
+
+    const data = req.body
+
+    const unavailableError = "le serveur est temporairement indisponible !"
+
+    sequelizeConfig.query(`
+        SELECT value, studentId, teacherId, semestrevalue,
+        moduleName, className, firstName, lastName, email FROM grades
+        INNER JOIN users ON studentId = users.id
+        WHERE teacherId = '${data.teacherId}' AND semestreValue = '${data.semestreValue}'
+        AND className = '${data.className}'
+        AND studentId IN(SELECT users.id FROM users INNER JOIN roles
+        ON users.id = userId WHERE role = 'student')
+        AND teacherId IN(SELECT users.id FROM users INNER JOIN roles
+        ON users.id = userId WHERE role = 'teacher')
+    `)
+    .then(data => {     
+        res.status(200).json(data[0])
+      })
+      .catch(() =>
+        res.status(500).json({ error: unavailableError })
+      )
+
+
+}

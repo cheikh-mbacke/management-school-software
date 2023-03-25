@@ -21,7 +21,7 @@ function getNomberOfWeek() {
     const daysSinceFirstDay = Math.floor((today - firstDayOfYear) / (24 * 60 * 60 * 1000));
     const daysSinceLastThursday = daysSinceFirstDay + (4 - firstDayOfYear.getDay());
     const weekNumber = Math.floor(daysSinceLastThursday / 7) + 1;
-    return weekNumber;
+    return weekNumber - 1;
 }
 
 function getWeekDates(mondayDate) {
