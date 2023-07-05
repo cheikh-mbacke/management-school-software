@@ -30,9 +30,7 @@ function handleaddModuleForm(event) {
 
     const formElements = event.target.elements
     const data = {
-        moduleName: formElements.moduleName.value,
-        className: formElements.className.value,
-        userId: formElements.userId.value,
+        moduleName: formElements.moduleName.value
     }
 
     postData('http://localhost:3000/api/modules/add', data)

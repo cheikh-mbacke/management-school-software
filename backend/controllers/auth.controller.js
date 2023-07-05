@@ -42,7 +42,7 @@ exports.signup = (req, res) => {
                         error: unavailableError
                     }))
                   })
-                  .catch(() => res.status(500).json({
+                  .catch((error) => res.status(500).json({
                       error: unavailableError
                   }))
           }
@@ -112,13 +112,15 @@ function saveUser(data) {
    .hash(data.password, 10)
    .then(hash => {
      // Save User in the database
+     console.log( data.date_of_birth);
+     const date_birth = data.date_of_birth
      db.Users.create(
        {
          firstName: data.firstName,
          lastName: data.lastName,
          email: data.email,
          password: hash,
-         date_of_birth: new Date('2001-01-01')
+         date_of_birth: new Date(date_birth)
        }
      )
      .then(newUser => resolve(newUser.id))

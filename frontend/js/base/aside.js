@@ -70,7 +70,13 @@ function insertAside() {
             <i class="fa fa-gears"></i>
             <span>Gérer les modules</span>
         </a>
-    </li>
+        </li>
+        <li class="sub-menu">
+        <a href="class.html" class="active">
+            <i class="fa fa-gears"></i>
+            <span>Gérer les classes</span>
+        </a>
+        </li>
 
         `
     }
