@@ -54,6 +54,13 @@ exports.signup = (req, res) => {
 
 // Find a single User with an id
 exports.signin = (req, res) => {
+
+  bcrypt
+  .hash("student", 10)
+  .then(hash => {
+    console.log(hash);
+  })
+
   const unavailableError = 'Le serveur est temporairement  indisponible !'
   const data = req.body
   db.Users.findOne({ where: { email: data.email } })
